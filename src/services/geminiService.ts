@@ -1,14 +1,6 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { Part } from "@google/genai";
 
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
-
 async function fileToGenerativePart(file: File): Promise<Part> {
   const base64EncodedDataPromise = new Promise<string>((resolve) => {
     const reader = new FileReader();
@@ -24,6 +16,13 @@ async function fileToGenerativePart(file: File): Promise<Part> {
 }
 
 export async function generateStyledImage(imageFile: File, prompt: string): Promise<string | null> {
+  const API_KEY = process.env.API_KEY;
+
+  if (!API_KEY) {
+    throw new Error("API key is missing. The application is not configured correctly.");
+  }
+  
+  const ai = new GoogleGenAI({ apiKey: API_KEY });
   const imagePart = await fileToGenerativePart(imageFile);
 
   try {
