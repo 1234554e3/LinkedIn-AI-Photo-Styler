@@ -1,0 +1,5 @@
+{
+  "name": "LinkedIn AI Photo Styler",
+  "description": "Upload one photo and get 3–4 AI-generated profile-ready images (official, formal with suit, casual, and creative) optimized for LinkedIn.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 37 99 235;
+  --color-primary-hover: 29 78 216;
+  --color-primary-light: 219 234 254;
+}
